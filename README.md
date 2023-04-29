@@ -16,7 +16,7 @@ This is a simple Todo List web app created using React and Tailwind CSS. The app
 
 ## Usage
 
-1. Open your web browser and navigate to `http://http://127.0.0.1:5173/`.
+1. Open your web browser and navigate to `http://127.0.0.1:5173/`.
 2. Use the input field at the top to add new tasks.
 3. Click on a edit and delete buttons to edit or delete it respectively.
 
