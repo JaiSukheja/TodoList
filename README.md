@@ -1,6 +1,6 @@
 # Todo List 
 
-This is a simple Todo List web app created using React and Tailwind CSS. The app allows you to add, edit, and delete tasks.
+This is a simple Todo List web app created using React and Tailwind CSS. The app allows you to add, edit and delete tasks.
 
 ## Features
 
