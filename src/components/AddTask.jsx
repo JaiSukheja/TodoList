@@ -1,12 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Tasks from "../../data.js";
 import Task from "./Task.jsx";
 const AddTask = () => {
-    const [idxVal,setValue] = useState(-1);
+  
+  const [idxVal,setValue] = useState(-1);
   const taskRef = useRef(null);
   const descRef = useRef(null);
   const [addBtn, setAddBtn] = useState(true);
-  const [TasksArray, setTasks] = useState(Tasks);
+  const [TasksArray, setTasks] = useState(window.localStorage.getItem("Tasks") ? JSON.parse(window.localStorage.getItem("Tasks")) : Tasks);
   const handleClick = async () => {
     setAddBtn(true);
     const taskValue = taskRef.current.value;
@@ -49,29 +50,34 @@ const AddTask = () => {
     taskRef.current.value = "";
     descRef.current.value = "";
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("Tasks", JSON.stringify(TasksArray));
+  }, [TasksArray]);
+
   return (
-    <div className="flex flex-col gap-5">
-      <div className="flex gap-5 justify-center">
+    <div className="flex flex-col gap-4 bg-black rounded-lg p-2">
+      <div className="flex gap-5 justify-center sticky top-20 bg-black p-4">
         <input
           ref={taskRef}
           type="text"
           placeholder="Enter Task"
-          className="text-center p-1 rounded-lg h-12 bg-slate-700 text-slate-300 placeholder:text-slate-300  text-xl outline-0 w-96 font-medium"
+          className="text-center p-1 rounded-lg h-12 bg-slate-700 text-slate-300 placeholder:text-slate-300  text-xl outline-0 w-44 font-medium"
         />
         <input
           ref={descRef}
           type="text"
           placeholder="Enter Description"
-          className="text-center p-1 rounded-lg h-12 bg-slate-700 text-slate-300 placeholder:text-slate-300  text-xl outline-0 w-96 font-medium"
+          className="text-center p-1 rounded-lg h-12 bg-slate-700 text-slate-300 placeholder:text-slate-300  text-xl outline-0 w-48 font-medium"
         />
         <button
-          className="text-center h-12 rounded-lg bg-slate-800 text-teal-400 font-semibold text-xl outline-0 w-64 hover:bg-slate-900"
+          className="text-center h-12 rounded-lg bg-slate-800 text-teal-400 font-semibold text-xl outline-0 w-24 hover:bg-slate-900"
           onClick={addBtn ? handleClick : editClickFunction}
         >
           {addBtn ? "Add Task" : "Update"}
         </button>
       </div>
-      <div className="flex flex-col p-4 bg-black  rounded-lg gap-3">
+      <div className="flex flex-col p-2 bg-black  rounded-lg gap-2">
         {TasksArray.map((single, idx) => {
           return (
             <Task

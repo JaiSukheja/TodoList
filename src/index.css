@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+html{
+    background-color: black;
+}
+.root{
+    min-height: 300px;
+    width: 600px;
+    background-color: black;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}

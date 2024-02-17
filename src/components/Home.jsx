@@ -3,7 +3,7 @@ import AddTask from './AddTask'
 
 const Home = () => {
   return (
-    <div className="justify-center items-center w-4/5 m-auto bg-black text-center p-10 h-max rounded-lg">
+    <div className="justify-center items-center bg-slate-900 text-center p-4 pt-0 h-max">
       <AddTask/>
     </div>
   )
