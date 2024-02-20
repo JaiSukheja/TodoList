@@ -37,3 +37,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - This project was created as a part of a React course.
 - Thanks to the creators of React and Tailwind CSS for making such great tools.
+
+
+
